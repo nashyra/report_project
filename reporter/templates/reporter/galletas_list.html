@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	
+	<h1>Galletas</h1>
+	<ul>
+	{% for galletas in object_list %} 
+		<li>{{galletas.proveedor}}
+			{% for sabor in galletas.sabores.all %}
+			<span style="color:blue">{{sabor}},{% endfor %}</span>
+			{{galletas.precio}}
+			{{galletas.cantidad}}</li>
+	{% endfor %}
+	</ul>
+	
+{% endblock %}

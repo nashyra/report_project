@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+		<ul>
+			{% for value in values %}
+				<li>{{value}} +</li>
+			{% endfor %}
+		</ul>
+		<p style="color:red">
+			{{result}}
+		</p>
+		<br>
+		<br>
+		<form action="{% url 'index' values.0 values.1 %}?num3={{values.2}}" method="POST">
+			{{form}}
+			<input type="submit" value="Sum">
+			{% csrf_token %}
+		</form>
+{% endblock %}
