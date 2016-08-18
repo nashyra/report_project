@@ -2,30 +2,19 @@
 
 {% block content %}
 	
-	<h1>Galletas</h1>
-	<a class="btn btn-success btn-sm"
-	href="{% url 'galleta_create' %}">
-	Crear a las {{datetime}}{{saludo}}
-		
-	</a>
-	<br> <br>
+	<h1>Eliminar Galletas</h1>
 	<ul>
 	{% for galletas in object_list %} 
 		<li>
 			<a class="btn btn-success btn-sm"
 			href="{% url 'galletas_update' galletas.pk %}">
-			Editar
-			</a>
-			<a class="btn btn-danger btn-sm"
-			href="{% url 'galletas_confirm_delete' galletas.pk %}">
 			Eliminar
 			</a>
 			{{galletas.proveedor}}
 			{% for sabor in galletas.sabores.all %}
 			<span style="color:blue">{{sabor}},{% endfor %}</span>
 			{{galletas.precio}}
-			<span style="color:red">{{galletas.cantidad}}</span>
-		</li>
+			{{galletas.cantidad}}</li>
 	{% endfor %}
 	</ul>
 	

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	
+	<h1>Editar Galletas</h1>
+	<ul>
+	{% for galletas in object_list %} 
+		<li>
+			<a class="btn btn-danger btn-sm"
+			href="{% url 'galletas_form' galletas.pk %}">
+			Editar
+			</a>
+			{{galletas.proveedor}}
+			{% for sabor in galletas.sabores.all %}
+			<span style="color:blue">{{sabor}},{% endfor %}</span>
+			{{galletas.precio}}
+			{{galletas.cantidad}}</li>
+	{% endfor %}
+	</ul>
+	
+{% endblock %}
